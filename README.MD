@@ -1,3 +1,6 @@
+I am changing my domain model and working on a web search platform 
+
+
 This is a second review of my domain model.
 Still need some refinement as I continue to code 
 The business inovation is to autogenerate prices for logistics service needs based on the type of priducts
