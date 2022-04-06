@@ -1,4 +1,6 @@
+from html import entities
 import spacy
+
 
 
 class NamedEntityClient:
@@ -8,4 +10,18 @@ class NamedEntityClient:
     
     def get_ents(self, sentence):
         #doc = self.model(sentence) - DIP in action, self.model is abstracted into Class NamedEntityClient.
-        return {}
+        doc = self.model(sentence)
+        entities = [{'ent': ent.text, 'label': self.map_label(ent.label_) } for ent in doc.ents]
+        return { 'ents': entities, 'html': ''}
+
+    @staticmethod
+    def map_label(label):
+        label_map = {
+
+            'PERSON'    : 'Person',
+            'NORP'      : 'Group',
+            'LOC'       : 'Location',
+            'LANGUAGE'  :'Language',
+            'GPE'       :'Location',
+        }
+        return label_map.get(label)
