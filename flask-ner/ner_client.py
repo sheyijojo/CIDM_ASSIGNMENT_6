@@ -3,6 +3,7 @@ import spacy
 
 
 
+
 class NamedEntityClient:
     def __init__(self, model): #DIP NamedEntity client is dependent on abstraction(model) rather than low-leveldetails
         self.model = model
@@ -11,7 +12,7 @@ class NamedEntityClient:
     def get_ents(self, sentence):
         #doc = self.model(sentence) - DIP in action, self.model is abstracted into Class NamedEntityClient.
         doc = self.model(sentence)
-        entities = [{'ent': ent.text, 'label': self.map_label(ent.label_) } for ent in doc.ents]
+        entities = [{'ent': ent.text, 'label': self.map_label(ent.label_)} for ent in doc.ents]
         return { 'ents': entities, 'html': ''}
 
     @staticmethod
