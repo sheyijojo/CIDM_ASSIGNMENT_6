@@ -1,4 +1,4 @@
-from pyexpat import model
+
 import unittest
 from ner_client import NamedEntityClient
 from test_doubles import NerModelTestDouble

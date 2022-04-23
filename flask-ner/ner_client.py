@@ -2,8 +2,6 @@ from html import entities
 import spacy
 
 
-
-
 class NamedEntityClient:
     def __init__(self, model): #DIP NamedEntity client is dependent on abstraction(model) rather than low-leveldetails
         self.model = model
