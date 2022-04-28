@@ -6,3 +6,18 @@ import model
 
 metadata = metadata()
 
+ent_table = Table(
+
+    'ent_table', metadata,
+    Column('person', String(255), primary_key = False),
+    Column('NORP', String(255)),
+    Column('LANGUAGE', String(255)),
+    Column('GPE', String(255)),
+
+)
+
+
+
+
+
+
