@@ -2,21 +2,25 @@ from importlib.metadata import metadata
 from sqlalchemy import Table, MetaData, Column, Integer, String, Date, ForeignKey
 from sqlalchemy.orm import mapper,relationship 
 
-import model 
+from ner_client import *
 
 metadata = metadata()
 
-ent_table = Table(
+named_entity_client = Table(
 
-    'ent_table', metadata,
-    Column('person', String(255), primary_key = False),
+    'named_entity_client', metadata,
+    Column('PERSON', String(255), primary_key= False),
     Column('NORP', String(255)),
     Column('LANGUAGE', String(255)),
     Column('GPE', String(255)),
 
 )
 
+   
 
+def start_mappers():
+    entity_mapper = mapper(NamedEntityClient, named_entity_client)
+  
 
 
 

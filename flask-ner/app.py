@@ -1,8 +1,8 @@
 
-from urllib import response
 from flask import Flask,render_template, request
 import json
 import spacy
+from spacy import displacy
 from ner_client import NamedEntityClient
 
 
