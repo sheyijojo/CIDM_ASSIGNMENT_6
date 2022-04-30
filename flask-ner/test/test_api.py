@@ -3,7 +3,6 @@ import json
 from flask import request
 
 from app import app
-
 class TestApi(unittest.TestCase):
 
     def test_ner_endpoint_given_json_body_returns_200(self):
