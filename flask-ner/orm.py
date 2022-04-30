@@ -1,25 +1,40 @@
-from importlib.metadata import metadata
 from sqlalchemy import Table, MetaData, Column, Integer, String, Date, ForeignKey
 from sqlalchemy.orm import mapper,relationship 
 
-from ner_client import *
+from test_doubles import *
 
-metadata = metadata()
+metadata = MetaData()
 
-named_entity_client = Table(
+ner_model_test_double = Table(
 
-    'named_entity_client', metadata,
-    Column('PERSON', String(255), primary_key= False),
-    Column('NORP', String(255)),
-    Column('LANGUAGE', String(255)),
-    Column('GPE', String(255)),
+    'ner_model_test_double', metadata,
+    Column('sentence', String(500), primary_key= True),
+    Column('label_', String(255)),
+)
+
+ner_doc_test_double = Table(
+    
+    'ner_doc_test_double', metadata,
+    Column('text',  String(500), primary_key= True),
+    Column('label_',  String(255)),
 
 )
 
-   
+ner_span_test_double = Table(
+
+    'ner_span_test_double', metadata,
+    Column('text', String(500), primary_key= True),
+    Column('label_',  String(255))
+
+
+)  
+
+
 
 def start_mappers():
-    entity_mapper = mapper(NamedEntityClient, named_entity_client)
+    model_mapper = mapper(NerModelTestDouble, ner_model_test_double)
+    doc_mapper = mapper(DocTestDouble, ner_doc_test_double)
+    span_mapper = mapper(SpanTestDouble, ner_span_test_double)
   
 
 
